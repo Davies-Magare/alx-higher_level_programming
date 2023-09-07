@@ -8,16 +8,16 @@ if __name__ == "__main__":
         exit(1)
     op = sys.argv[2]
     if op != '+' and op != '-' and op != '*' and op != '/':
-        print("{}".format("Unknown operator. Available operators: +, -, * and /"))
+        print("{}".format("Unknown operator. Available operators: "
+                          "+, -, * and /"))
         exit(1)
     nu1 = int(sys.argv[1])
     nu2 = int(sys.argv[3])
     if op == '+':
         print("{} + {} = {}".format(nu1, nu2, add(nu1, nu2)))
     elif op == '-':
-         print("{} - {} = {}".format(nu1, nu2, sub(nu1, nu2)))
+        print("{} - {} = {}".format(nu1, nu2, sub(nu1, nu2)))
     elif op == '*':
-         print("{} * {} = {}".format(nu1, nu2, mul(nu1, nu2)))
+        print("{} * {} = {}".format(nu1, nu2, mul(nu1, nu2)))
     elif op == '/':
-         print("{} / {} = {}".format(nu1, nu2, div(nu1, nu2)))
-
+        print("{} / {} = {}".format(nu1, nu2, div(nu1, nu2)))
