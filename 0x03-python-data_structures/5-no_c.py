@@ -9,6 +9,4 @@ def no_c(my_string):
             del(str_list[i])
         i += 1
     new_str = ""
-    for i in range(0, len(str_list)):
-        new_str += str_list[i]
-    return new_str
+    return new_str.join(str_list)
