@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 def no_c(my_string):
-    if not my_string:
-        return None
     str_list = list(my_string)
     i = 0
     while (i < len(str_list)):
@@ -11,6 +9,6 @@ def no_c(my_string):
             del(str_list[i])
         i += 1
     new_str = ""
-    for item in str_list:
-        new_str += item
+    for i in range(0, len(str_list)):
+        new_str += str_list[i]
     return new_str
