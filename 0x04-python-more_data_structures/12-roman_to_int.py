@@ -15,12 +15,11 @@ def roman_to_int(roman_string):
     number = 0
     i = 0
     while i < len(rom_str):
-        if (i < len(rom_str) - 1 and
-            rom_str[i] == 'I' and
-                rom_str[i + 1] == 'X'):
-            number += 9
-            i += 2
-        else:
-            number += d[rom_str[i]]
-            i += 1
+        number += d[rom_str[i]]
+        if i > 0:
+            if rom_str[i] == 'X' and rom_str[i - 1] == 'I':
+                number -= 2
+            elif rom_str[i] == 'V' and rom_str[i - 1] == 'I':
+                number -= 2
+        i += 1
     return number
