@@ -15,9 +15,9 @@ def roman_to_int(roman_string):
     number = 0
     i = 0
     while i < len(rom_str):
-        if i < len(rom_str) - 1 and
-        rom_str[i] == 'I' and
-        rom_str[i + 1] == 'X':
+        if (i < len(rom_str) - 1 and
+            rom_str[i] == 'I' and
+                rom_str[i + 1] == 'X'):
             number += 9
             i += 2
         else:
