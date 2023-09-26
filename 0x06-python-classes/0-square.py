@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""This class doesn't import any modules yet"""
 class Square:
-    """An empty class for a square"""
+    """Square: an empty class
+    It defines a square
+    """
     pass
