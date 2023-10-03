@@ -1,0 +1,42 @@
+This module tests the 0-add_integer function
+>>> add_integer = __import__('0-add_integer').add_integer
+
+The result should be a positive integer for two positive 
+integer arguments, positive or negative.
+
+>>> add_integer(4, 5)
+9
+
+>>> add_integer(4, -2)
+2
+
+The function should work too for one argument since b is
+set to a default of 98 when not given
+
+>>> add_integer(2)
+100
+
+>>> add_integer(4.5, 3)
+7
+
+>>> add_integer(4, )
+102
+
+Exceptions are raised when a wrong type argument
+is given, no argument is given, or the argument is None.
+>>> add_integer(4, "davies")
+Traceback (most recent call last):
+	...
+TypeError: b must be an integer
+
+>>> add_integer("davies", 4)TypeError: a must be an integer
+
+>>> add_integer(None)
+Traceback (most recent call last):
+	...
+TypeError: a must be an integer
+
+>>> add_integer()
+Traceback (most recent call last):
+	...
+TypeError: add_integer() missing 1 required positional argument: 'a'
