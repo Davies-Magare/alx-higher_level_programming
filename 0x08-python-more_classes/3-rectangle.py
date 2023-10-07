@@ -6,7 +6,8 @@ This module describes an empty class
 
 
 class Rectangle:
-    """Rectangle:Describes a rectangle
+    """
+    Rectangle: Describes a rectangle
     This class describes a rectangle
 
     width: The width of the rectangle
