@@ -9,8 +9,8 @@ class Rectangle:
     This class describes a rectangle
     """
     def __init__(self, width=0, height=0):
-        self.__width = width
-        self.__height = height
+        self.width = width
+        self.height = height
 
     @property
     def width(self):
@@ -61,7 +61,7 @@ class Rectangle:
 
     def perimeter(self):
         """perimeter: returns the perimeter of the rectangle"""
-        if (self.__width == 0 and self.__height == 0):
+        if (self.__width == 0 or self.__height == 0):
             return 0
         return 2 * (self.__width + self.__height)
 
@@ -69,14 +69,9 @@ class Rectangle:
         """area: returns the area of the rectangle"""
         return self.__width * self.__height
 
-    def print_rec(self):
-        """print_rec: prints the rectangle"""
-        result = ""
-        for i in range(self.__height):
-            result += (self.__height - 1) * ('#' * self.__width + '\n')
-            result += self.width * '#'
-            return result
-
     def __str__(self):
-        """str: prints the rectangle"""
-        return self.print_rec()
+        """str: prints a representation of the rectangle using '#'"""
+        if self.__width == 0 or self.__height == 0:
+            return ""
+        return('#' * self.__width + '\n') * (self.__height - 1) +
+        ('#' * self.__width)
