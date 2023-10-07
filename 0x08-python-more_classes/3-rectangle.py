@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 
-"""
-This module describes an empty class
-"""
+"""This module describes an empty class"""
 
 
 class Rectangle:
