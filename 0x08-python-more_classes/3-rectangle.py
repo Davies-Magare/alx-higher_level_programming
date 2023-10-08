@@ -11,6 +11,7 @@ class Rectangle:
     width: The width of the rectangle
     height: The height of the rectangle
     """
+
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
@@ -73,6 +74,8 @@ class Rectangle:
         return self.__width * self.__height
 
     def __str__(self):
+        """str: prints the object """
+
         if self.__width == 0 or self.__height == 0:
             return ""
         return('#' * self.__width + '\n') * (self.__height - 1) +
