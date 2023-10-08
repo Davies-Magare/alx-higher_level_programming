@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 
-"""This module describes an empty class"""
+"""This module describes a rectangle"""
 
 
 class Rectangle:
+
     """
-    Rectangle: Describes a rectangle
-    This class describes a rectangle
+    Rectangle: A class that describes a rectangle
 
     width: The width of the rectangle
     height: The height of the rectangle
