@@ -1,0 +1,34 @@
+Set of tests for 7_geometry module
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Two arguments must be supplied to BaseGeometry
+>>> dv = BaseGeometry()
+>>> dv.integer_validator()
+Traceback (most recent call last):
+	...
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+
+When correct arguments are supplied nothing is returned
+>>> dv = BaseGeometry()
+>>> dv.integer_validator("davies", 79)
+
+Value must be greater than 0
+>>> dv = BaseGeometry()
+>>> dv.integer_validator("davies", 0)
+Traceback (most recent call last):
+	...
+ValueError: davies must be greater than 0
+>>> dv = BaseGeometry()
+>>> dv.integer_validator("davies", -1)
+Traceback (most recent call last):
+	...
+ValueError: davies must be greater than 0
+
+value must be an integer
+>>> dv = BaseGeometry()
+>>> dv.integer_validator("davies", '4')
+Traceback (most recent call last):
+	...
+TypeError: davies must be an integer
