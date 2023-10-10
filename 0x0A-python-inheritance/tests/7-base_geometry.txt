@@ -60,3 +60,6 @@ TypeError: davies must be an integer
 
 >>> dv = BaseGeometry()
 >>> dv.integer_validator("davies", True)
+Traceback (most recent call last):
+	...
+TypeError: davies must be an integer
