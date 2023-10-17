@@ -103,22 +103,33 @@ class Rectangle(Base):
         return '[Rectangle] ({}) {}/{} - {}/{}'.format(
                 self.id, self.__x, self.__y, self.__width, self.__height)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """update: updates Rectangle attributes"""
-
-        ls = []
-        for item in args:
-            ls.append(item)
-        if len(ls) == 1:
-            self.id = ls[0]
-        elif len(ls) == 2:
-            self.id, self.__width = ls
-        elif len(ls) == 3:
-            self.id, self.__width = ls[:2]
-            self.__height = ls[2]
-        elif len(ls) == 4:
-            self.id, self.__width = ls[:2]
-            self.__height, self.__x = ls[2:]
-        elif len(ls) == 5:
-            self.id, self.__width = ls[:2]
-            self.__height, self.__x, self.__y = ls[2:]
+        if (len(args) != 0):
+            ls = []
+            for item in args:
+                ls.append(item)
+            if len(ls) == 1:
+                self.id = ls[0]
+            elif len(ls) == 2:
+                self.id, self.__width = ls
+            elif len(ls) == 3:
+                self.id, self.__width = ls[:2]
+                self.__height = ls[2]
+            elif len(ls) == 4:
+                self.id, self.__width = ls[:2]
+                self.__height, self.__x = ls[2:]
+            elif len(ls) == 5:
+                self.id, self.__width = ls[:2]
+                self.__height, self.__x, self.__y = ls[2:]
+        else:
+            if "id" in kwargs:
+                self.id = kwargs["id"]
+            if "width" in kwargs:
+                self.__width = kwargs["width"]
+            if "height" in kwargs:
+                self.__height = kwargs["height"]
+            if "x" in kwargs:
+                self.__x = kwargs["x"]
+            if "y" in kwargs:
+                self.__y = kwargs["y"]
