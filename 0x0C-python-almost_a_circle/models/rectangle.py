@@ -8,6 +8,8 @@ from models.base import Base
 
 
 class Rectangle(Base):
+    """The class Rectangle"""
+
     def __init__(self, width, height, x=0, y=0, id=None):
         super().__init__(id)
         self.width = width
@@ -17,6 +19,7 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        """width: returns the value of width"""
         return self.__width
 
     @width.setter
@@ -32,6 +35,7 @@ class Rectangle(Base):
 
     @property
     def height(self):
+        """height: returns the height"""
         return self.__height
 
     @height.setter
@@ -47,6 +51,8 @@ class Rectangle(Base):
 
     @property
     def x(self):
+        """x: returns the value of x"""
+
         return self.__x
 
     @x.setter
@@ -61,6 +67,8 @@ class Rectangle(Base):
 
     @property
     def y(self):
+        """y: returns the value of y"""
+
         return self.__y
 
     @y.setter
@@ -90,5 +98,7 @@ class Rectangle(Base):
             print(row)
 
     def __str__(self):
+        """str: returns string representation of rectangle"""
+
         return('[Rectangle] ({}) {}/{} - {}/{}'.format(self.id, self.__x,
                                         self.__y, self.__width, self.__height))
