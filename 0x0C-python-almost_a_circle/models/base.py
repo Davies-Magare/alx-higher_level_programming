@@ -38,7 +38,7 @@ class Base:
         if list_objs is None or len(list_objs) == 0:
             dict_obj = []
         else:
-            class_name = type(list_objs[0]).__name__
+            class_name = cls.__name__
             dict_obj = []
             for item in list_objs:
                 if class_name == 'Rectangle':
@@ -59,6 +59,7 @@ class Base:
                             }
                     dict_obj.append(dictnr)
         json_str_obj = cls.to_json_string(dict_obj)
+        class_name = cls.__name__
         filename = class_name + '.json'
         with open(filename, "w") as f:
             f.write(json_str_obj)
