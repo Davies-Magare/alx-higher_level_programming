@@ -34,10 +34,11 @@ class Base:
         ==========
         list_objs: A list of class isntances to be serialized
         """
-        class_name = type(list_objs[0]).__name__
+
         if list_objs is None or len(list_objs) == 0:
             dict_obj = []
         else:
+            class_name = type(list_objs[0]).__name__
             dict_obj = []
             for item in list_objs:
                 if class_name == 'Rectangle':
