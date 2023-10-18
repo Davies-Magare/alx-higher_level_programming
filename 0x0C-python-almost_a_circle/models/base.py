@@ -36,7 +36,7 @@ class Base:
         """
         class_name = type(list_objs[0]).__name__
         if list_objs is None or len(list_objs) == 0:
-            dict_obj = "[]"
+            dict_obj = []
         else:
             dict_obj = []
             for item in list_objs:
