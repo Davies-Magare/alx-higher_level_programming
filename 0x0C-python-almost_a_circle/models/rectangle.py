@@ -112,27 +112,27 @@ class Rectangle(Base):
             if len(ls) == 1:
                 self.id = ls[0]
             elif len(ls) == 2:
-                self.id, self.__width = ls
+                self.id, self.width = ls
             elif len(ls) == 3:
-                self.id, self.__width = ls[:2]
-                self.__height = ls[2]
+                self.id, self.width = ls[:2]
+                self.height = ls[2]
             elif len(ls) == 4:
-                self.id, self.__width = ls[:2]
-                self.__height, self.__x = ls[2:]
+                self.id, self.width = ls[:2]
+                self.height, self.x = ls[2:]
             elif len(ls) == 5:
-                self.id, self.__width = ls[:2]
-                self.__height, self.__x, self.__y = ls[2:]
+                self.id, self.width = ls[:2]
+                self.height, self.x, self.y = ls[2:]
         else:
             if "id" in kwargs:
                 self.id = kwargs["id"]
             if "width" in kwargs:
-                self.__width = kwargs["width"]
+                self.width = kwargs["width"]
             if "height" in kwargs:
-                self.__height = kwargs["height"]
+                self.height = kwargs["height"]
             if "x" in kwargs:
-                self.__x = kwargs["x"]
+                self.x = kwargs["x"]
             if "y" in kwargs:
-                self.__y = kwargs["y"]
+                self.y = kwargs["y"]
 
     def to_dictionary(self):
         """
@@ -140,4 +140,10 @@ class Rectangle(Base):
         the rectangle
         """
 
-        return self.__dict__
+        return {
+                'id': self.id,
+                'width': self.width,
+                'height': self.height,
+                'x': self.x,
+                'y': self.y
+                }
