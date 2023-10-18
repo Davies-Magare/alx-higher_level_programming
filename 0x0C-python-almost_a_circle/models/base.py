@@ -35,25 +35,28 @@ class Base:
         list_objs: A list of class isntances to be serialized
         """
         class_name = type(list_objs[0]).__name__
-        dict_obj = []
-        for item in list_objs:
-            if class_name == 'Rectangle':
-                dictnr = {
-                        'id': item.id,
-                        'width': item.width,
-                        'height': item.height,
-                        'x': item.x,
-                        'y': item.y
-                        }
-                dict_obj.append(dictnr)
-            elif class_name == 'Square':
-                dictnr = {
-                        'id': item.id,
-                        'size': item.width,
-                        'x': item.x,
-                        'y': item.y
-                        }
-                dict_obj.append(dictnr)
+        if list_objs is None or len(list_objs) == 0:
+            dict_obj = "[]"
+        else:
+            dict_obj = []
+            for item in list_objs:
+                if class_name == 'Rectangle':
+                    dictnr = {
+                            'id': item.id,
+                            'width': item.width,
+                            'height': item.height,
+                            'x': item.x,
+                            'y': item.y
+                            }
+                    dict_obj.append(dictnr)
+                elif class_name == 'Square':
+                    dictnr = {
+                            'id': item.id,
+                            'size': item.width,
+                            'x': item.x,
+                            'y': item.y
+                            }
+                    dict_obj.append(dictnr)
         json_str_obj = cls.to_json_string(dict_obj)
         filename = class_name + '.json'
         with open(filename, "w") as f:
