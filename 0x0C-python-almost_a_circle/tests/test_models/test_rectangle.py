@@ -6,7 +6,7 @@ import io
 class TestRectangle(unittest.TestCase):
     def test_args(self):
         second = Rectangle(10, 2, 0, 0)
-        self.assertEqual(second.id, 3)
+        self.assertEqual(second.id, 4)
         self.assertEqual(second.width, 10)
         self.assertEqual(second.height, 2)
         self.assertEqual(second.x, 0)
@@ -133,36 +133,47 @@ class TestRectangle(unittest.TestCase):
             rec.display()
             self.assertEqual(f.getvalue(), ' ##\n ##\n')
 
+    def test_to_dict(self):
+        r1 = Rectangle(79, 50)
+        r1_dictionary = r1.to_dictionary()
+        self.assertEqual(r1_dictionary, {'id': 7, 'width': 79, 'height': 50, 'x': 0, 'y': 0})
 
+        r1 = Rectangle(79, 39)
+        r1_dictionary = r1.to_dictionary()
+        self.assertEqual(r1_dictionary, {'id': 8, 'width': 79, 'height': 39, 'x': 0, 'y': 0})
 
+        r1 = Rectangle(79, 39, 49)
+        r1_dictionary = r1.to_dictionary()
+        self.assertEqual(r1_dictionary, {'id': 9, 'width': 79, 'height': 39, 'x': 49, 'y': 0})
 
+        r1 = Rectangle(79, 39, 49, 59)
+        r1_dictionary = r1.to_dictionary()
+        self.assertEqual(r1_dictionary, {'id': 10, 'width': 79, 'height': 39, 'x': 49, 'y': 59})
 
+        r1 = Rectangle(79, 39, 49, 59, 69)
+        r1_dictionary = r1.to_dictionary()
+        self.assertEqual(r1_dictionary, {'id': 69, 'width': 79, 'height': 39, 'x': 49, 'y': 59})
 
+    def test_update_kwargs(self):
+        r1 = Rectangle(10, 10, 10, 10, 79)
+        r1.update(width = 4)
+        rec = r1.__str__()
+        self.assertEqual(rec, '[Rectangle] (79) 10/10 - 4/10')
 
+        r1 = Rectangle(10, 10, 10, 10, 79)
+        r1.update(width = 4, height = 5)
+        rec = r1.__str__()
+        self.assertEqual(rec, '[Rectangle] (79) 10/10 - 4/5')
 
+        r1 = Rectangle(10, 10, 10, 10, 79)
+        r1.update(width = 4, height = 5, x = 6)
+        rec = r1.__str__()
+        self.assertEqual(rec, '[Rectangle] (79) 6/10 - 4/5')
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        r1 = Rectangle(10, 10, 10, 10, 79)
+        r1.update(width = 4, height = 5, x = 6, y = 7)
+        rec = r1.__str__()
+        self.assertEqual(rec, '[Rectangle] (79) 6/7 - 4/5')
 
 
 
