@@ -1,5 +1,7 @@
 import unittest
+import unittest.mock
 from models.rectangle import Rectangle
+import io
 
 class TestRectangle(unittest.TestCase):
     def test_args(self):
@@ -110,6 +112,28 @@ class TestRectangle(unittest.TestCase):
         r1.update()
         rec = r1.__str__()
         self.assertEqual(rec, "[Rectangle] (10) 10/10 - 10/10")
+    
+    def test_display(self):
+        rec = Rectangle(2, 2, 0, 0, 10)
+        with unittest.mock.patch('sys.stdout', new_callable=io.StringIO) as f:
+            rec.display()
+            self.assertEqual(f.getvalue(), '##\n##\n')
+
+        rec = Rectangle(2, 2, 0, 1, 10)
+        with unittest.mock.patch('sys.stdout', new_callable=io.StringIO) as f:
+            rec.display()
+            self.assertEqual(f.getvalue(), '\n##\n##\n')
+        rec = Rectangle(2, 2, 1, 1, 10)
+        with unittest.mock.patch('sys.stdout', new_callable=io.StringIO) as f:
+            rec.display()
+            self.assertEqual(f.getvalue(), '\n ##\n ##\n')
+
+        rec = Rectangle(2, 2, 1, 0, 10)
+        with unittest.mock.patch('sys.stdout', new_callable=io.StringIO) as f:
+            rec.display()
+            self.assertEqual(f.getvalue(), ' ##\n ##\n')
+
+
 
 
 
