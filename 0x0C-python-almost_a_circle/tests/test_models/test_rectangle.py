@@ -68,7 +68,83 @@ class TestRectangle(unittest.TestCase):
     def test_area(self):
         r1 = Rectangle(3, 2)
         self.assertEqual(r1.area(), 6)
+
+    def test_str(self):
+        r1 = Rectangle(4, 5, 0, 4, 9)
+        rec = r1.__str__()
+        self.assertEqual(rec, "[Rectangle] (9) 0/4 - 4/5")
     
+    
+    def test_update(self):
+        r1 = Rectangle(10, 10, 10, 10, 10)
+        r1.update(4)
+        rec = r1.__str__()
+        self.assertEqual(rec, "[Rectangle] (4) 10/10 - 10/10")
+
+        r1 = Rectangle(10, 10, 10, 10, 10)
+        r1.update(4, 5)
+        rec = r1.__str__()
+        self.assertEqual(rec, "[Rectangle] (4) 10/10 - 5/10")
+
+        r1 = Rectangle(10, 10, 10, 10, 10)
+        r1.update(4, 5, 6)
+        rec = r1.__str__()
+        self.assertEqual(rec, "[Rectangle] (4) 10/10 - 5/6")
+
+        r1 = Rectangle(10, 10, 10, 10, 10)
+        r1.update(4, 5, 6, 7)
+        rec = r1.__str__()
+        self.assertEqual(rec, "[Rectangle] (4) 7/10 - 5/6")
+
+        r1 = Rectangle(10, 10, 10, 10, 10)
+        r1.update(4, 5, 6, 7, 8)
+        rec = r1.__str__()
+        self.assertEqual(rec, "[Rectangle] (4) 7/8 - 5/6")
+        
+        r1 = Rectangle(10, 10, 10, 10, 10)
+        r1.update([])
+        rec = r1.__str__()
+        self.assertEqual(rec, "[Rectangle] ([]) 10/10 - 10/10")
+
+        r1 = Rectangle(10, 10, 10, 10, 10)
+        r1.update()
+        rec = r1.__str__()
+        self.assertEqual(rec, "[Rectangle] (10) 10/10 - 10/10")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     if __name__ == '__main__':
