@@ -5,8 +5,8 @@ function factorial (num) {
   } else {
     return (num * factorial(num - 1));
   }
-};
+}
 const input = Number.parseInt(process.argv[2]);
 if (!isNaN(input)) {
-  console.log(factorial (input))
+  console.log(factorial(input));
 }
