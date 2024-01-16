@@ -11,13 +11,16 @@ if __name__ == "__main__":
              (SELECT id from states WHERE name = %s)"
     cur.execute(query, (sys.argv[4],))
     query_result = cur.fetchall()
-    result_list = []
-    for row in query_result:
-        result_list.append(row[0])
-    for city in result_list:
-        if city != result_list[-1]:
-            print("{}, ".format(city), end="")
-        else:
-            print(city)
+    if not query_result:
+        print()
+    else:
+        result_list = []
+        for row in query_result:
+            result_list.append(row[0])
+        for city in result_list:
+            if city != result_list[-1]:
+                print("{}, ".format(city), end="")
+            else:
+                print(city)
     cur.close()
     conn.close()
