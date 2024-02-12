@@ -1,5 +1,14 @@
 #!/usr/bin/node
-if (process.argv.length <= 3) {
+function checkSimilar () {
+  const firstIndex = parseInt(process.argv[2]);
+  for (let i = 3; i < process.argv.length; i++) {
+    if (parseInt(process.argv[i]) !== firstIndex) {
+      return (0);
+    }
+  }
+  return (1);
+}
+if (process.argv.length <= 3 || checkSimilar() === 1) {
   console.log(0);
 } else {
   function findBiggest () {
