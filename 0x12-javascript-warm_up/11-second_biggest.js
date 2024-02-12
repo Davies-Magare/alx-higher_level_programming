@@ -1,11 +1,11 @@
 #!/usr/bin/node
 if (process.argv.length <= 3) {
-  console.log('0');
+  console.log(0);
 } else {
   function findBiggest () {
     let biggest = 2;
     for (let i = 3; i < process.argv.length; i++) {
-      if (process.argv[i] > process.argv[biggest]) {
+      if (parseInt(process.argv[i]) > parseInt(process.argv[biggest])) {
         biggest = i;
       }
     }
@@ -13,12 +13,12 @@ if (process.argv.length <= 3) {
   }
   const biggestNum = findBiggest();
   let secondBiggest = 2;
-  const subZero = process.argv[biggestNum] - process.argv[2];
-  for (let i = 3; i <= process.argv.length; i++) {
-    if ((process.argv[biggestNum] - process.argv[i]) !== 0 &&
-      (process.argv[biggestNum] - process.argv[i]) < subZero) {
+  const subZero = parseInt(process.argv[biggestNum]) - parseInt(process.argv[2]);
+  for (let i = 3; i < process.argv.length; i++) {
+    if ((parseInt(process.argv[biggestNum]) - parseInt(process.argv[i])) !== 0 &&
+      (parseInt(process.argv[biggestNum]) - parseInt(process.argv[i])) < subZero) {
       secondBiggest = i;
     }
   }
-  console.log(process.argv[secondBiggest]);
+  console.log(parseInt(process.argv[secondBiggest]));
 }
