@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-"""
-This module demonstrates how to make a connection to
-MySQLdb and execute a query.
-"""
+"""Make a connection to MySQLdb and execute a query."""
 
 if __name__ == "__main__":
     import MySQLdb
