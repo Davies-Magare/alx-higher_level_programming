@@ -20,10 +20,11 @@ if __name__ == "__main__":
     db = MySQLdb.connect(host="localhost", port=3306,
                          user=sys.argv[1], password=sys.argv[2],
                          database=sys.argv[3])
-    cursor = db.cursor()
-    cursor.execute("""SELECT name FROM cities WHERE state_id =
+    if len(sys.argv) > 4:
+        cursor = db.cursor()
+        cursor.execute("""SELECT name FROM cities WHERE state_id =
             (SELECT id FROM states WHERE name = %s)""", (sys.argv[4],))
-    results = cursor.fetchall()
-    print_results(results)
-    cursor.close()
+        results = cursor.fetchall()
+        print_results(results)
+        cursor.close()
     db.close()
