@@ -13,7 +13,7 @@ if __name__ == "__main__":
     session = Session()
     results = session.query(State.name).order_by(asc(State.id)).first()
     if results == None:
-        print()
+        print("Nothing")
     else:
         i = 1
         for result in results:
