@@ -19,3 +19,4 @@ if __name__ == "__main__":
     for result in results:
         print("{}: {}".format(i, result[0]))
         i += 1
+    session.close()
