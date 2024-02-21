@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-print first state object from hbtn_0e_6_usa
+Print state objects with 'a' in name from hbtn_0e_6_usa
 """
 import sys
 from model_state import Base, State
@@ -12,12 +12,12 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    results = session.query(State.name).order_by(asc(State.id)).first()
+    results = session.query(State.name).filter(State.name.like('%a%')).order_by(asc(State.id)).all()
     if results == None:
         print("Nothing")
     else:
         i = 1
         for result in results:
-            print("{}: {}".format(i, result))
+            print("{}: {}".format(i, result[0]))
             i += 1
     session.close()
