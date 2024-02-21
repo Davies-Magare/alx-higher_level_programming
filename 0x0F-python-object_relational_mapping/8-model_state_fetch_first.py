@@ -12,8 +12,11 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
     results = session.query(State.name).order_by(asc(State.id)).first()
-    i = 1
-    for result in results:
-        print("{}: {}".format(i, result))
-        i += 1
+    if results == None:
+        print()
+    else:
+        i = 1
+        for result in results:
+            print("{}: {}".format(i, result))
+            i += 1
     session.close()
