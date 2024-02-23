@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-This module prints all City objects from the database
-hbtn_0e_14_usa
+This module prints all City objects from the database hbtn_0e_14_usa.
 """
 import sys
 from model_state import Base, State
