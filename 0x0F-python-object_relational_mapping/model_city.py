@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """
 Define City class that inherits from Base
 This module defines the City class that inherits from Base
