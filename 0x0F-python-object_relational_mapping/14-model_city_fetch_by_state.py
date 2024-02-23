@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Start link class to table in database
+"""
 List all city objects from database
 """
 import sys
