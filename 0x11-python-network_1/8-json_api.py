@@ -4,21 +4,22 @@ with the letter as a parameter
 """
 import requests
 import sys
-payload = {}
-arg = ""
-if len(sys.argv) >= 2:
-    arg = sys.argv[1]
-payload["q"] = arg
-url = "http://0.0.0.0:5000/search_user"
-try:
-    r = requests.post(url, data=payload)
+if __name__ == "__main__":
+    payload = {}
+    arg = ""
+    if len(sys.argv) >= 2:
+        arg = sys.argv[1]
+    payload["q"] = arg
+    url = "http://0.0.0.0:5000/search_user"
     try:
-        json_str = r.json()
-        if not json_str:
-            print("No result")
-        else:
-            print("[{}] {}".format(json_str['id'], json_str['name']))
+        r = requests.post(url, data=payload)
+        try:
+            json_str = r.json()
+            if not json_str:
+                print("No result")
+            else:
+                print("[{}] {}".format(json_str['id'], json_str['name']))
+        except Exception:
+            print("Not a valid Json")
     except Exception:
-        print("Not a valid Json")
-except Exception:
-    pass
+        pass
