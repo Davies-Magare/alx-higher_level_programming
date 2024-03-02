@@ -13,6 +13,9 @@ if __name__ == "__main__":
     url = "http://0.0.0.0:5000/search_user"
     try:
         r = requests.post(url, data=payload)
+        if r.status_code >= 500:
+            print("Not a valid Json")
+            return
         try:
             json_str = r.json()
             if not json_str:
