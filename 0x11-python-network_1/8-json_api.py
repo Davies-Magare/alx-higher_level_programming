@@ -15,14 +15,14 @@ if __name__ == "__main__":
         r = requests.post(url, data=payload)
         if r.status_code >= 500:
             print("Not a valid Json")
-            return
-        try:
-            json_str = r.json()
-            if not json_str:
-                print("No result")
-            else:
-                print("[{}] {}".format(json_str['id'], json_str['name']))
-        except Exception:
-            print("Not a valid Json")
+        else:
+            try:
+                json_str = r.json()
+                if not json_str:
+                    print("No result")
+                else:
+                    print("[{}] {}".format(json_str['id'], json_str['name']))
+            except Exception:
+                print("Not a valid Json")
     except Exception:
         pass
